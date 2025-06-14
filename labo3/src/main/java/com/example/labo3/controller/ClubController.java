@@ -3,6 +3,9 @@ package com.example.labo3.controller;
 import com.example.labo3.dto.request.ClubRequest;
 import com.example.labo3.dto.response.ClubResponse;
 import com.example.labo3.service.ClubService;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 import java.util.List;
 
@@ -27,4 +30,11 @@ public class ClubController {
     public ResponseEntity<List<ClubResponse>> getClubsByTitles(@RequestParam Integer titles) {
         return ResponseEntity.ok(clubService.getClubsByTitles(titles));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ClubResponse> deleteClub(@PathVariable Long id) {
+        ClubResponse deleted = clubService.deleteClub(id);
+        return ResponseEntity.ok(deleted);
+    }
+
 }

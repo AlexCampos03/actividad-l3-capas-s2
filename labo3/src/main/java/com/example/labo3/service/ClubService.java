@@ -8,4 +8,5 @@ import java.util.List;
 public interface ClubService {
     ClubResponse createClub(ClubRequest request);
     List<ClubResponse> getClubsByTitles(Integer titles);
+    ClubResponse deleteClub(Long id);
 }
